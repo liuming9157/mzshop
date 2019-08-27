@@ -70,7 +70,7 @@
 	.multi-container {
 		display: flex;
 		flex-direction: column;
-		width: 750px;
+		width: 750upx;
 	}
 
 	.multi-head {
@@ -79,7 +79,7 @@
 		align-content: center;
 		align-items: center;
 		;
-		margin: 24.3px 33px 23.3px 33px;
+		margin: 24.3upx 33upx 23.3upx 33upx;
 	}
 
 	.multi-head-left {
@@ -88,9 +88,9 @@
 
 	.multi-topic {
 		color: #1A1A1A;
-		font-size: 31.3px;
-		line-height: 40.6px;
-		margin-right: 30px;
+		font-size: 31.3upx;
+		line-height: 40.6upx;
+		margin-right: 30upx;
 		align-self: center;
 	}
 
@@ -106,55 +106,55 @@
 	.multi-link {
 		color: #1A1A1A;
 		opacity: 0.5;
-		font-size: 27px;
-		margin-right: 14px;
+		font-size: 27upx;
+		margin-right: 14upx;
 		align-self: center;
 	}
 
 	.multi-arrow {
-		width: 16px;
-		height: 28px;
+		width: 16upx;
+		height: 28upx;
 		align-self: center;
 	}
 
 	.multi-list {
 		border-color: #0000ff;
 		flex-wrap: wrap;
-		margin-left: 25px;
-		margin-right: 25px;
+		margin-left: 25upx;
+		margin-right: 25upx;
 	}
 
 	.multi-image {
-		margin: 0px 8px 16px 8px;
-		border-radius: 8.3px;
+		margin: 0upx 8upx 16upx 8upx;
+		border-radius: 8.3upx;
 	}
 
 	.multi-product1 {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		margin-bottom: 39px;
+		margin-bottom: 39upx;
 	}
 
 	.multi-product2 {
 		display: flex;
 		flex-direction: column;
 		width: 50%;
-		margin-bottom: 39px;
+		margin-bottom: 39upx;
 	}
 
 	.multi-product3 {
 		display: flex;
 		flex-direction: column;
 		width: 33.3%;
-		margin-bottom: 39px;
+		margin-bottom: 39upx;
 	}
 
 	.multi-product4 {
 		display: flex;
 		flex-direction: column;
 		width: 25%;
-		margin-bottom: 39px;
+		margin-bottom: 39upx;
 	}
 
 	.multi-description {
@@ -164,32 +164,32 @@
 
 	.multi-title {
 		color: #1A1A1A;
-		font-size: 27.1px;
-		line-height: 34.9px;
-		margin-left: 8px;
+		font-size: 27.1upx;
+		line-height: 34.9upx;
+		margin-left: 8upx;
 	}
 
 	.multi-subtitle {
 		color: #1A1A1A;
 		opacity: 0.5;
-		font-size: 20.8px;
-		line-height: 27.1px;
-		margin-left: 8px;
+		font-size: 20.8upx;
+		line-height: 27.1upx;
+		margin-left: 8upx;
 	}
 
 	.multi-specialprice {
 		color: #fa2a2d;
-		font-size: 20.8px;
-		line-height: 27.1px;
-		margin-left: 8px;
+		font-size: 20.8upx;
+		line-height: 27.1upx;
+		margin-left: 8upx;
 	}
 
 	.multi-originprice {
 		color: #000000;
 		opacity: 0.5;
 		text-decoration: line-through;
-		font-size: 20.8px;
-		line-height: 27.1px;
-		margin-left: 8px;
+		font-size: 20.8upx;
+		line-height: 27.1upx;
+		margin-left: 8upx;
 	}
 </style>
