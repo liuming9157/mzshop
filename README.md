@@ -10,12 +10,19 @@ MzShop坚持大道至简的原则，简化源代码，易于维护，主要特�
 + + 头条小程序(含抖音小程序)
 + 后台采用FastAdmin开发，多插件选用
 + 前端代码模块化，清晰易懂，便于维护
-## [后台代码下载](https://github.com/liuming9157/mzshop-admin)
-##作者
-刘明  
-Email:liuming@mzsat.cn  
-QQ Group：147835195  
-Wechat:![liumingwx02](http://cdn.mzyun.tech/wxqrcode.png)
+## 管理后台
+
+下载后端代码请至[后台代码下载](https://github.com/liuming9157/mzshop-admin)
+
+
+## 安装
+1. 下载IDE
+[UniAPP专属开发工具HBuilderX](https://www.dcloud.io/hbuilderx.html)
+2. 克隆代码 
+` git clone git@github.com:liuming9157/mzshop.git `
+3. 用IDE打开项目代码并生成发行版代码  
+
+>强烈推荐开发者学习UniAPP开发方式，可参考[UniAPP官方开发文档](https://uniapp.dcloud.io)
 
 ## 目录结构
 
@@ -47,8 +54,8 @@ Mzshop
 ├─LICENSE.txt           授权说明文件
 ├─README.md             README 文件
 ~~~
-> 修改uni.scss可修改css变量，可用于自定义主题色
-> 切换到common目录，可自由添加工具函数，然后挂载到Vue.prototype
+> 修改uni.scss可修改css变量，可用于自定义主题色  
+> 切换到common目录，可自由添加工具函数，然后挂载到Vue.prototype  
 ## 文档
 
 详细开发文档参考 [MzShop开发手册](https://mzshop.mzyun.tech/doc)
@@ -70,11 +77,16 @@ MzShop® 商标和著作权所有者为北京敬天明志教育科技有限公�
 
 更多细节参阅 [LICENSE.txt](LICENSE.txt)  
 
-### 感谢以下开源项目及作者
+## 感谢以下开源项目及作者
 1. [FastAdmin](http://fastadmin.net) 作者：Karson Zhang  
 2. [UniApp](https://uniapp.dcloud.io) 作者：Dcould团队
 3. [ThinkPHP](http://thinkphp.cn) 作者：流年
 4. [EasyWechat](https://www.easywechat.com) 作者：overtrue
 
-### 定制开发
+## 定制开发
 定制开发请直接联系作者
+#### 作者信息
+刘明  
+Email:liuming@mzsat.cn  
+QQ Group：147835195  
+Wechat:![liumingwx02](http://cdn.mzyun.tech/wxqrcode.png)
