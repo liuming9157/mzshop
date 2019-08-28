@@ -62,8 +62,17 @@ Mzshop
 详细开发文档参考 [MzShop文档](https://mzshop.mzyun.tech/doc)
 
 ## 参与开发
+我们欢迎广大开发者贡献大家的智慧，让MzShop变得更完美。  
+##### 操作流程
+1. 首先Fork [liuming9157/mzshop](https://github.com/liuming9157/mzshop)(GitHub)或[liuming9157/mzshop](https://gitee.com/liuming9157/mzshop)(Gitee)
+2. 然后克隆到你本地
+3. 编写代码并提交
+4. Push到你的分支
+5. 创建`Pull Request`并描述你完成的功能或作出的修改
+具体可请参阅 [MzShop文档](https://mzshop.mzyun.tech/doc)。
+##### 报告BUG
 
-请参阅 [MzShop文档](https://mzshop.mzyun.tech/doc)。
+当你在使用过程中遇到问题，可提issue或者直接联系作者(作者联系方式见本文最后)
 
 ## 版权信息
 MzShop遵循Apache2开源协议发布，并提供免费使用。
