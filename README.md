@@ -1,4 +1,4 @@
-MzShop(0.1)--大道至简，代码清晰易懂
+MzShop(0.1)--大道至简，模块化组装
 =========
 MzShop坚持大道至简的原则，简化源代码，易于维护，主要特性包括：
 + 前台采用UniAPP框架开发，跨平台多端部署，包括：
@@ -62,7 +62,11 @@ Mzshop
 详细开发文档参考 [MzShop文档](https://mzshop.mzyun.tech/doc)
 
 ## 参与开发
-我们欢迎广大开发者贡献大家的智慧，让MzShop变得更完美。  
+我们欢迎广大开发者贡献大家的智慧，让MzShop变得更完美。 
+##### 前提
+1. 熟悉Vue语法
+2. 推荐UniAPP开发规范及IDE
+3. css遵循BEM规范
 ##### 操作流程
 1. 首先Fork [liuming9157/mzshop](https://github.com/liuming9157/mzshop)(GitHub)或[liuming9157/mzshop](https://gitee.com/liuming9157/mzshop)(Gitee)
 2. 然后克隆到你本地
