@@ -8,6 +8,7 @@ MzShop坚持大道至简的原则，简化源代码，易于维护，主要特�
 + + 百度智能小程序
 + + 支付宝小程序（含钉钉小程序）
 + + 头条小程序(含抖音小程序)
++ + H5页面
 + 后台采用FastAdmin开发，多插件选用
 + 前端代码模块化，清晰易懂，便于维护
 ## 管理后台
@@ -18,11 +19,11 @@ MzShop坚持大道至简的原则，简化源代码，易于维护，主要特�
 ## 安装
 1. 下载IDE
 [UniAPP专属开发工具HBuilderX](https://www.dcloud.io/hbuilderx.html)
-2. 克隆代码 
+2. 克隆代码  
 ` git clone git@github.com:liuming9157/mzshop.git `
 3. 用IDE打开项目代码并生成发行版代码  
 
->强烈推荐开发者学习UniAPP开发方式，可参考[UniAPP官方开发文档](https://uniapp.dcloud.io)
+>强烈推荐开发者学习UniAPP开发方式，可参阅[UniAPP官方开发文档](https://uniapp.dcloud.io)
 
 ## 目录结构
 
@@ -58,7 +59,7 @@ Mzshop
 > 切换到common目录，可自由添加工具函数，然后挂载到Vue.prototype  
 ## 文档
 
-详细开发文档参考 [MzShop开发手册](https://mzshop.mzyun.tech/doc)
+详细开发文档参考 [MzShop文档](https://mzshop.mzyun.tech/doc)
 
 ## 参与开发
 
@@ -83,10 +84,15 @@ MzShop® 商标和著作权所有者为北京敬天明志教育科技有限公�
 3. [ThinkPHP](http://thinkphp.cn) 作者：流年
 4. [EasyWechat](https://www.easywechat.com) 作者：overtrue
 
+## 常见问题说明
+1. 页面能否再美化一下？  
+答：商城开发通常具有很强的个性需求，无论怎样美化页面，都无法满足所有人的要求，开发者可根据自己需求自行美化页面。
+2. 能否添加一些功能？例如砍价、拼团等  
+答：砍价、拼团等高级功能不在本项目的计划范围内。
 ## 定制开发
-定制开发请直接联系作者
-#### 作者信息
-刘明  
+定制开发请联系作者
+##### 作者信息
+Jack Liu  
 Email:liuming@mzsat.cn  
 QQ Group：147835195  
 Wechat:![liumingwx02](http://cdn.mzyun.tech/wxqrcode.png)
