@@ -144,47 +144,47 @@
 </script>
 <style>
 	.uni-numbox {
-		display: flex;
+		display: inline-flex;
 		justify-content: flex-start;
 		align-items: center;
-		width:230upx;
-		height: 70upx;
-		background:#f5f5f5;
+		height: 50upx;
+		position: relative;
+		border:1px solid #C0C0C0;
+		border-radius: 8upx;
 	}
 
 	.uni-numbox-minus,
 	.uni-numbox-plus {
 		margin: 0;
-		background-color: #f5f5f5;
-		width: 70upx;
-		height: 100%;
-		line-height: 70upx;
+		background-color: #f8f8f8;
+		width: 50upx;
+		height: 50upx;
+		font-size: 30upx;
+		line-height: 50upx;
 		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: #333;
 		position: relative;
 	}
 	
+	
 
-	.uni-numbox-minus {
-		border-right: none;
-		border-top-left-radius: 6upx;
-		border-bottom-left-radius: 6upx;
-	}
-
-	.uni-numbox-plus {
-		border-left: none;
-		border-top-right-radius: 6upx;
-		border-bottom-right-radius: 6upx;
-	}
+	
 
 	.uni-numbox-value {
 		position: relative;
-		background-color: #f5f5f5;
-		width: 90upx;
+		width: 50upx;
 		height: 50upx;
+		line-height: 50upx;
 		text-align: center;
 		padding: 0;
 		font-size: 30upx;
+		border-left:1px solid #C0C0C0;
+		border-right:1px solid #C0C0C0;
 	}
+	
 
 	.uni-numbox-disabled {
 		color: #d6d6d6;

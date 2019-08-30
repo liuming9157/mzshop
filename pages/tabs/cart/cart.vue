@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
-		<empty :hasLogin='hasLogin' :empty='empty'></empty>
-		<cart-item :cartList="cartList" :hasLogin="hasLogin"></cart-item>
+		<empty v-if='cartList.length===0'></empty>
+		<cart-item ref='cart' v-else :cartList="cartList" :hasLogin="hasLogin"></cart-item>
 	</view>
 </template>
 
@@ -16,13 +16,12 @@
 		},
 		data() {
 			return {
-				hasLogin:true,
-				empty: false, //空白页  true|false
 				cartList:{}
 			};
 		},
 		onLoad() {
-			this.cartList=mockData.cartList
+			this.cartList=mockData.cartList;
+			
 		},
 		methods: {
 

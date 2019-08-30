@@ -1,13 +1,9 @@
 <template>
-	<view v-if="!hasLogin || empty===true" class="empty">
+	<view class="empty">
 		<image src="http://cdn.mzyun.tech/shop/emptyCart.jpg" mode="aspectFit"></image>
-		<view v-if="hasLogin" class="empty-tips">
+		<view  class="empty-tips">
 			空空如也
-			<navigator class="navigator" v-if="hasLogin" url="../index/index" open-type="switchTab">随便逛逛></navigator>
-		</view>
-		<view v-else class="empty-tips">
-			空空如也
-			<view class="navigator" @click="navToLogin">去登陆></view>
+			<navigator class="navigator" url="/pages/tabs/index/index" open-type="switchTab">随便逛逛></navigator>
 		</view>
 	</view>
 </template>
@@ -15,23 +11,7 @@
 <script>
 	export default{
 		name:'empty',
-		props:{
-			hasLogin:{
-				type:Boolean,
-				default:true
-			},
-			empty:{
-				type:Boolean,
-				default:true
-			}
-		},
-		methods:{
-			navToLogin(){
-				uni.navigateTo({
-					url: '/pages/login/login/login'
-				})
-			},
-		}
+		
 	}
 </script>
 
