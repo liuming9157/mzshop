@@ -1,22 +1,23 @@
 <template>
-	<view>
+	<view v-if='hasLogin&& cartList.length>0'>
 		<!-- 列表 -->
 		<view class="cart-list">
 			<block v-for="(item, index) in cartList" :key="item.id">
-				<view class="cart-item" :class="{'b-b': index!==cartList.length-1}">
-					<view class="image-wrapper">
-						<image :src="item.goods.image" :class="[item.loaded]" mode="aspectFill" lazy-load @load="onImageLoad('cartList', index)"
-						 @error="onImageError('cartList', index)"></image>
-						<view class="yticon icon-xuanzhong2 checkbox" :class="{checked: item.checked}" @click="check('item', index)"></view>
+				<view class="cart-item">
+					
+						<checkbox :checked='item.choosed' color='#FF3333' @click="check('item', index)"/>
+					
+<!-- 					<image class="cart-check" :src="item.choosed==true?'/static/cart/checked.png':'/satic/cart/unchecked.png'"  @click="check('item', index)"></image>
+ -->					<view class="image-wrapper">
+						<image :src="item.goods_image" mode="aspectFill"></image>
 					</view>
 					<view class="item-right">
-						<text class="clamp title">{{item.goods.name}}</text>
-						<text class="attr">{{item.spec}}</text>
-						<text class="price">¥{{item.goods.shop_price}}</text>
-						<uni-number-box class="step" :min="1" :max="item.goods.stock_count" :value="item.number" :isMin="item.number===1"
-						 :index="index" @eventChange="numberChange"></uni-number-box>
+						<text class="clamp title">{{item.goods_name}}</text>
+						<text class="attr">{{item.goods_spec}}</text>
+						<text class="price">¥{{item.goods_price}}</text>
+						<uni-number-box class="step" :min="1" :value="item.number" :isMin="item.number===1"
+						 :index="index" @eventChange="numberChange" :data-index='item.index'></uni-number-box>
 					</view>
-					<text class="del-btn yticon icon-fork" @click="deleteCartItem(index)"></text>
 				</view>
 			</block>
 		</view>
@@ -42,17 +43,28 @@
 	import uniNumberBox from '@/components/cart/uni-number-box.vue'
 	export default {
 		name: 'cart-item',
-		components:{uniNumberBox},
+		components: {
+			uniNumberBox
+		},
 		props: {
+			hasLogin: {
+				type: Boolean,
+				default: true
+			},
 			cartList: {
-				type:Array,
-				default:function(){
+				type: Array,
+				default: function() {
 					return []
 				}
 			},
-			allChecked:{
-				type:Boolean,
-				default:true
+			allChecked: {
+				type: Boolean,
+				default: true
+			}
+		},
+		data() {
+			return {
+				totalPrice: 0
 			}
 		},
 		methods: {
@@ -70,71 +82,25 @@
 					return;
 				}
 				let totalPrice = 0;
-				let checked = true;
 				list.forEach(item => {
-					if (item.checked === true) {
-						totalPrice += item.goods.shop_price * item.number;
-					} else if (checked === true) {
-						checked = false;
-					}
+					if (item.choosed === true) {
+						totalPrice += item.goods_price * item.number;
+					} 
 				})
-				this.allChecked = checked;
 				this.totalPrice = Number(totalPrice.toFixed(2));
 			},
-			//监听image加载完成
-			onImageLoad(key, index) {
-				this.$set(this[key][index], 'loaded', 'loaded');
-			},
-			//监听image加载失败
-			onImageError(key, index) {
-				this[key][index].image = 'http://cdn.mzyun.tech/shop/errorImage.jpg';
-			},
 			
-			 //选中状态处理
-			check(type, index){
-				if(type === 'item'){
-					this.cartList[index].checked = !this.cartList[index].checked;
-				}else{
-					const checked = !this.allChecked
-					const list = this.cartList;
-					list.forEach(item=>{
-						item.checked = checked;
-					})
-					this.allChecked = checked;
-				}
-				this.updateTotalPrice(type);
-			},
-			
-			//删除
-			deleteCartItem(index){
-				let list = this.cartList;
-				let row = list[index];
-				let id = row.id;
-			
-				this.cartList.splice(index, 1);
+
+			//选中状态处理
+			check(type, index) {
+				if (type === 'item') {
+					this.cartList[index].choosed = !this.cartList[index].choosed
+				} 
 				this.updateTotalPrice();
-				uni.hideLoading();
-				let data={type:'delete',id:list.id,user_id:this.user_id};
-				this.$get('/index/cart',data)
-				
-			},
-			//清空
-			clearCart(){
-				uni.showModal({
-					content: '清空购物车？',
-					success: (e)=>{
-						if(e.confirm){
-							this.cartList = [];
-							let data={type:'clear'};
-							let result=this.$get('/index/cart',data);
-							if(result){
-								this.loadData()
-							}
-						}
-					}
-				})
-			},
-			
+			}
+		},
+		created:function(){
+			this.updateTotalPrice()
 		}
 	}
 </script>
@@ -144,8 +110,13 @@
 	.cart-item {
 		display: flex;
 		position: relative;
+		align-content: center;
+		align-items: center;
 		padding: 30upx 40upx;
-
+		.cart-check{
+			width: 30upx;
+			height: 30upx;
+		}
 		.image-wrapper {
 			width: 230upx;
 			height: 230upx;
@@ -153,6 +124,8 @@
 			position: relative;
 
 			image {
+				width: 230upx;
+				height: 230upx;
 				border-radius: 8upx;
 			}
 		}
@@ -196,6 +169,9 @@
 			.price {
 				height: 50upx;
 				line-height: 50upx;
+			}
+			.step{
+				
 			}
 		}
 

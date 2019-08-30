@@ -18,10 +18,10 @@ MzShop最明显的特征是完全组件化，代码清晰易懂，易于维护�
 + 包含常用工具函数，缩短二次开发时间
 ## 文档目录
 #### 一、基础部分
-##### [开发工具](/doc/ide.md)
-##### [安装](/doc/installation.md)
-##### [目录结构](/doc/directory.md)
-##### [工具函数](/doc/tool.md)
+##### [开发工具](ide.md)
+##### [安装](installation.md)
+##### [目录结构](directory.md)
+##### [工具函数](tool.md)
 
 >支持MzShop的用户，请到[GitHub](https://github.com/liuming9157/mzshop)上给我们一个` Star ` 
 ## Mzshop 官方QQ群
@@ -35,32 +35,7 @@ MzShop致力于简化商城项目开发，您的支持是我们前进的动力�
 ![donate](http://cdn.mzyun.tech/paycode.png)
 ## 推荐学习
 因为MzShop采用了UniAPP框架，我们强烈推荐您学习以下项目：
-**UniAPP**    
+1. UniAPP  
 UniAPP是一个基于Vue.js开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。  
 [UniAPP官方文档](https://uniapp.dcloud.io)
 
-
-## 参与开发
-我们欢迎广大开发者贡献大家的智慧，让MzShop变得更完美。 
-
-##### 操作流程
-1. 首先Fork [liuming9157/mzshop](https://github.com/liuming9157/mzshop)(GitHub)或[liuming9157/mzshop](https://gitee.com/liuming9157/mzshop)(Gitee)
-2. 然后克隆到你本地
-3. 编写代码并提交
-4. Push到你的分支
-5. 创建`Pull Request`并描述你完成的功能或作出的修改
-##### 报告BUG
-
-当你在使用过程中遇到问题，可提issue或者直接联系作者(作者联系方式见本文最后)
-
-
-## 感谢以下开源项目及作者
-1. [UniApp](https://uniapp.dcloud.io) 作者：Dcould团队
-
-## 定制开发
-定制开发请联系作者
-##### 作者信息
-Jack Liu  
-Email:liuming@mzsat.cn  
-QQ Group：147835195  
-Wechat:![liumingwx02](http://cdn.mzyun.tech/wxqrcode.png)

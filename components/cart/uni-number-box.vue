@@ -1,25 +1,53 @@
 <template>
 	<view class="uni-numbox">
-		<view class="uni-numbox__minus" :class="{'uni-numbox--disabled': inputValue <= min || disabled}" @click="_calcValue('minus')">-</view>
-		<input class="uni-numbox__value" type="number" :disabled="disabled" v-model="inputValue" @blur="_onBlur">
-		<view class="uni-numbox__plus" :class="{'uni-numbox--disabled': inputValue >= max || disabled}" @click="_calcValue('plus')">+</view>
+		<view class="uni-numbox-minus" 
+			@click="_calcValue('subtract')"
+		>
+			<text :class="minDisabled?'uni-numbox-disabled': ''" >-</text>
+		</view>
+		<input 
+			class="uni-numbox-value" 
+			type="number" 
+			:disabled="disabled"
+			:value="inputValue" 
+			
+			@blur="_onBlur"
+		>
+		<view 
+			class="uni-numbox-plus" 
+			@click="_calcValue('add')"
+		>
+			<text :class="maxDisabled?'uni-numbox-disabled': ''" >+</text>
+		</view>
 	</view>
 </template>
 <script>
 	export default {
 		name: 'uni-number-box',
 		props: {
-			value: {
-				type: [Number, String],
-				default: 1
+			isMax: {
+				type: Boolean,
+				default: false
 			},
-			min: {
+			isMin: {
+				type: Boolean,
+				default: false
+			},
+			index: {
 				type: Number,
 				default: 0
 			},
+			value: {
+				type: Number,
+				default: 0
+			},
+			min: {
+				type: Number,
+				default: -Infinity
+			},
 			max: {
 				type: Number,
-				default: 100
+				default: Infinity
 			},
 			step: {
 				type: Number,
@@ -32,136 +60,133 @@
 		},
 		data() {
 			return {
-				inputValue: 0
+				inputValue: this.value,
+				minDisabled: false,
+				maxDisabled: false
 			}
 		},
+		created(){
+			this.maxDisabled = this.isMax;
+			this.minDisabled = this.isMin;
+		},
+		computed: {
+
+		},
 		watch: {
-			value(val) {
-				this.inputValue = +val;
-			},
-			inputValue(newVal, oldVal) {
-				if (+newVal !== +oldVal) {
-					this.$emit('change', newVal);
+			inputValue(number) {
+				const data = {
+					number: number,
+					index: this.index
 				}
+				this.$emit('eventChange', data);
 			}
 		},
 		methods: {
 			_calcValue(type) {
-				if (this.disabled) {
-					return
+				const scale = this._getDecimalScale();
+				let value = this.inputValue * scale;
+				let newValue = 0;
+				let step = this.step * scale;
+				
+				if(type === 'subtract'){
+					newValue = value - step;
+					if (newValue <= this.min){
+						this.minDisabled = true;
+					}
+					if(newValue < this.min){
+						newValue = this.min
+					}
+					if(newValue < this.max && this.maxDisabled === true){
+						this.maxDisabled = false;
+					}
+				}else if(type === 'add'){
+					newValue = value + step;
+					if (newValue >= this.max){
+						this.maxDisabled = true;
+					}
+					if(newValue > this.max){
+						newValue = this.max
+					}
+					if(newValue > this.min && this.minDisabled === true){
+						this.minDisabled = false;
+					}
 				}
-				const scale = this._getDecimalScale()
-				let value = this.inputValue * scale
-				let step = this.step * scale
-				if (type === 'minus') {
-					value -= step
-				} else if (type === 'plus') {
-					value += step
+				if(newValue === value){
+					return;
 				}
-				if (value < this.min || value > this.max) {
-					return
-				}
-				this.inputValue = value / scale;
+				this.inputValue = newValue / scale;
 			},
 			_getDecimalScale() {
-				let scale = 1
+				let scale = 1;
 				// 浮点型
 				if (~~this.step !== this.step) {
-					scale = Math.pow(10, (this.step + '').split('.')[1].length)
+					scale = Math.pow(10, (this.step + '').split('.')[1].length);
 				}
-				return scale
+				return scale;
 			},
 			_onBlur(event) {
-				let value = event.detail.value
+				let value = event.detail.value;
 				if (!value) {
-					this.inputValue = 0
+					this.inputValue = 0;
 					return
 				}
 				value = +value;
 				if (value > this.max) {
-					value = this.max
+					value = this.max;
 				} else if (value < this.min) {
 					value = this.min
 				}
+
 				this.inputValue = value
 			}
-		},
-		created() {
-			this.inputValue = +this.value;
 		}
 	}
 </script>
 <style>
-	@charset "UTF-8";
-
 	.uni-numbox {
-		display: inline-flex;
-		flex-direction: row;
+		display: flex;
 		justify-content: flex-start;
+		align-items: center;
+		width:230upx;
 		height: 70upx;
-		position: relative
+		background:#f5f5f5;
 	}
 
-	.uni-numbox:after {
-		content: '';
-		position: absolute;
-		transform-origin: center;
-		box-sizing: border-box;
-		pointer-events: none;
-		top: -50%;
-		left: -50%;
-		right: -50%;
-		bottom: -50%;
-		border: 1px solid #c8c7cc;
-		border-radius: 12upx;
-		transform: scale(.5)
-	}
-
-	.uni-numbox__minus,
-	.uni-numbox__plus {
+	.uni-numbox-minus,
+	.uni-numbox-plus {
 		margin: 0;
-		background-color: #f8f8f8;
+		background-color: #f5f5f5;
 		width: 70upx;
-		font-size: 40upx;
 		height: 100%;
 		line-height: 70upx;
 		text-align: center;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		color: #333;
-		position: relative
-	}
-
-	.uni-numbox__value {
 		position: relative;
-		background-color: #fff;
-		width: 80upx;
-		height: 100%;
+	}
+	
+
+	.uni-numbox-minus {
+		border-right: none;
+		border-top-left-radius: 6upx;
+		border-bottom-left-radius: 6upx;
+	}
+
+	.uni-numbox-plus {
+		border-left: none;
+		border-top-right-radius: 6upx;
+		border-bottom-right-radius: 6upx;
+	}
+
+	.uni-numbox-value {
+		position: relative;
+		background-color: #f5f5f5;
+		width: 90upx;
+		height: 50upx;
 		text-align: center;
-		padding: 0
+		padding: 0;
+		font-size: 30upx;
 	}
 
-	.uni-numbox__value:after {
-		content: '';
-		position: absolute;
-		transform-origin: center;
-		box-sizing: border-box;
-		pointer-events: none;
-		top: -50%;
-		left: -50%;
-		right: -50%;
-		bottom: -50%;
-		border-style: solid;
-		border-color: #c8c7cc;
-		border-left-width: 1px;
-		border-right-width: 1px;
-		border-top-width: 0;
-		border-bottom-width: 0;
-		transform: scale(.5)
-	}
-
-	.uni-numbox--disabled {
-		color: silver
+	.uni-numbox-disabled {
+		color: #d6d6d6;
 	}
 </style>
