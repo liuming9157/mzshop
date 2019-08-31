@@ -24,7 +24,15 @@
 			}
 		}
 
-	],
+	    ,{
+            "path" : "pages/address/address-list/address-list",
+            "style" : {"navigationBarTitleText": "地址列表"}
+        }
+        ,{
+            "path" : "pages/address/address-edit/address-edit",
+            "style" : {"navigationBarTitleText": "地址编辑"}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "明志商城",
