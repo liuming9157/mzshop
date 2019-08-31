@@ -37,6 +37,12 @@ const msg = (title, duration = 1500, mask = false, icon = 'none') => {
 		icon
 	});
 }
+//简化uni.navigateTo
+const jump=(url)=>{
+	uni.navigateTo({
+		url:url
+	})
+}
 //判断是否登录，否则跳转到登录页
 const isLogin = (hasLogin) => {
 	if (!hasLogin) {
@@ -95,5 +101,8 @@ export default {
 	get,
 	prePage,
 	msg,
+	jump,
 	isLogin,
+	formatTime,
+	getDistance,
 }
