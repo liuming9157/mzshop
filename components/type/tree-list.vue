@@ -54,7 +54,7 @@
 			},
 			goProduct(id){
 				uni.navigateTo({
-					url:`/pages/goods/detail/detail?id=${id}`
+					url:`/pages/goods/detail/detail`
 				})
 			}
 		},

@@ -32,6 +32,18 @@
             "path" : "pages/address/address-edit/address-edit",
             "style" : {"navigationBarTitleText": "地址编辑"}
         }
+        ,{
+            "path" : "pages/about/about",
+            "style" : {"navigationBarTitleText": "关于我们"}
+        }
+        ,{
+            "path" : "pages/setting/setting",
+            "style" : {"navigationBarTitleText": "设置"}
+        }
+        ,{
+            "path" : "pages/goods/detail/detail",
+            "style" : {"navigationBarTitleText": "商品详情"}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

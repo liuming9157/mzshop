@@ -49,6 +49,11 @@
 					return []
 				}
 			}
+		},
+		methods:{
+			detail(){
+				this.$jump('/pages/goods/detail/detail')
+			}
 		}
 	}
 </script>

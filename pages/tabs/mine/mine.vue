@@ -4,9 +4,8 @@
 		<grid :nav='nav'></grid>
 		<uni-list>
 			<uni-list-item title="地址管理" @click='goAddress'></uni-list-item>
-			<uni-list-item title="账号管理"></uni-list-item>
-			<uni-list-item title="客服管理"></uni-list-item>
-			<uni-list-item title="关于"></uni-list-item>
+			<uni-list-item title="设置" @click='goSetting'></uni-list-item>
+			<uni-list-item title="关于" @click='goAbout'></uni-list-item>
 		</uni-list>
 	</view>
 </template>
@@ -34,6 +33,12 @@
 		methods: {
 			goAddress() {
 				this.$jump('/pages/address/address-list/address-list')
+			},
+			goSetting() {
+				this.$jump('/pages/setting/setting')
+			},
+			goAbout() {
+				this.$jump('/pages/about/about')
 			}
 		},
 		onLoad() {
