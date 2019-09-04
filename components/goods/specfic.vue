@@ -1,26 +1,46 @@
 <template>
 	<view class="specfic-content"> <text class="specfic-title">规格</text>
-		<view> <text v-for="(item,index) in specficdata.specfic" :key='index' :class="[item.select?'specfic-item-active':'specfic-item']"
+		<view>
+			<text v-for="(item,index) in specficdata.specfic" :key='index' :class="[item.select?'specfic-item-active':'specfic-item']"
 			 @click="specficFun(index)">{{item.value}}</text>
-		</view> <text class="specfic-title">尺寸</text>
-		<view> <text v-for="(item,index) in specficdata.size" :key='index' :class="[item.select?'specfic-item-active':'specfic-item']"
+		</view>
+		<text class="specfic-title">尺寸</text>
+		<view>
+			<text v-for="(item,index) in specficdata.size" :key='index' :class="[item.select?'specfic-item-active':'specfic-item']"
 			 @click="sizeFun(index)">{{item.value}}</text>
-		</view> <text class="specfic-title">购买数量</text>
+		</view>
+		<text class="specfic-title">购买数量</text>
 		<uni-number-box @change="numberChange"></uni-number-box>
 	</view>
 </template>
 
 <script>
 	import uniNumberBox from '@/components/cart/uni-number-box.vue'
-	export default{
-		name:'specfic',
-		props:{
-			specficdata:{}
+	export default {
+		name: 'specfic',
+		components: {
+			uniNumberBox
 		},
-		methods:{
-			specficFun(){},
-			sizeFun(){},
-			numberChange(){}
+		props: {
+			specficdata: {}
+		},
+		methods: {
+			//选择规格		
+			specficFun(index) {
+				console.log(this.specficdata)
+				for (var i = 0; i < this.specficdata.specfic.length; i++) {
+					this.specficdata.specfic[i].select = false;
+				}
+				this.specficdata.specfic[index].select = true;
+			},
+			//选择尺寸		
+			sizeFun(index) {
+				for (var i = 0; i < this.specficdata.size.length; i++) {
+					this.specficdata.size[i].select = false;
+				}
+				this.specficdata.size[index].select = true;
+			},
+			numberChange() {}
 		}
 	}
 </script>

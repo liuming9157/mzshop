@@ -14,19 +14,24 @@ const walletInfo = [{
 }]
 const nav = [{
 	image: '/static/mine/order1.png',
-	name: '全部订单'
+	name: '全部订单',
+	url:'/pages/order/order?index=0'
 }, {
 	image: '/static/mine/order2.png',
-	name: '待付款'
+	name: '待付款',
+	url:'/pages/order/order?index=1'
 }, {
 	image: '/static/mine/order3.png',
-	name: '待收货'
+	name: '待收货',
+	url:'/pages/order/order?index=2'
 }, {
 	image: '/static/mine/order4.png',
-	name: '待评价'
+	name: '待评价',
+	url:'/pages/order/order?index=3'
 }, {
 	image: '/static/mine/order5.png',
-	name: '已完成'
+	name: '已完成',
+	url:'/pages/order/order?index=4'
 }]
 export default {
 	userInfo,
